@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osteoporosis Risk Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Osteoporosis Risk Prediction</h1>
+        
+        <form action="/predict" method="POST" class="space-y-4">
+            <!-- Gender -->
+            <div>
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                <select id="gender" name="gender" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <!-- Hormonal Changes -->
+            <div>
+                <label for="hormonal_changes" class="block text-sm font-medium text-gray-700">Hormonal Changes</label>
+                <select id="hormonal_changes" name="hormonal_changes" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Normal">Normal</option>
+                    <option value="Postmenopausal">Postmenopausal</option>
+                </select>
+            </div>
+
+            <!-- Family History -->
+            <div>
+                <label for="family_history" class="block text-sm font-medium text-gray-700">Family History</label>
+                <select id="family_history" name="family_history" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Race/Ethnicity -->
+            <div>
+                <label for="race" class="block text-sm font-medium text-gray-700">Race/Ethnicity</label>
+                <select id="race" name="race" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Caucasian">Caucasian</option>
+                    <option value="Asian">Asian</option>
+                    <option value="African American">African American</option>
+                    <option value="Hispanic">Hispanic</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Body Weight -->
+            <div>
+                <label for="body_weight" class="block text-sm font-medium text-gray-700">Body Weight</label>
+                <select id="body_weight" name="body_weight" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Underweight">Underweight</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Overweight">Overweight</option>
+                </select>
+            </div>
+
+            <!-- Calcium Intake -->
+            <div>
+                <label for="calcium_intake" class="block text-sm font-medium text-gray-700">Calcium Intake</label>
+                <select id="calcium_intake" name="calcium_intake" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Low">Low</option>
+                    <option value="Adequate">Adequate</option>
+                </select>
+            </div>
+
+            <!-- Vitamin D Intake -->
+            <div>
+                <label for="vitamin_d_intake" class="block text-sm font-medium text-gray-700">Vitamin D Intake</label>
+                <select id="vitamin_d_intake" name="vitamin_d_intake" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Low">Low</option>
+                    <option value="Adequate">Adequate</option>
+                </select>
+            </div>
+
+            <!-- Physical Activity -->
+            <div>
+                <label for="physical_activity" class="block text-sm font-medium text-gray-700">Physical Activity</label>
+                <select id="physical_activity" name="physical_activity" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Sedentary">Sedentary</option>
+                    <option value="Active">Active</option>
+                </select>
+            </div>
+
+            <!-- Smoking -->
+            <div>
+                <label for="smoking" class="block text-sm font-medium text-gray-700">Smoking</label>
+                <select id="smoking" name="smoking" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Alcohol Consumption -->
+            <div>
+                <label for="alcohol_consumption" class="block text-sm font-medium text-gray-700">Alcohol Consumption</label>
+                <select id="alcohol_consumption" name="alcohol_consumption" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Medical Conditions -->
+            <div>
+                <label for="medical_conditions" class="block text-sm font-medium text-gray-700">Medical Conditions</label>
+                <select id="medical_conditions" name="medical_conditions" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="None">None</option>
+                    <option value="Rheumatoid Arthritis">Rheumatoid Arthritis</option>
+                    <option value="Hyperthyroidism">Hyperthyroidism</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Medications -->
+            <div>
+                <label for="medications" class="block text-sm font-medium text-gray-700">Medications</label>
+                <select id="medications" name="medications" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="None">None</option>
+                    <option value="Corticosteroids">Corticosteroids</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Prior Fractures -->
+            <div>
+                <label for="prior_fractures" class="block text-sm font-medium text-gray-700">Prior Fractures</label>
+                <select id="prior_fractures" name="prior_fractures" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Predict Risk</button>
+            </div>
+        </form>
+
+        <!-- Display Prediction Result -->
+        {% if prediction_text %}
+        <div class="mt-6 p-4 bg-green-100 border border-green-400 rounded-md">
+            <p class="text-lg font-semibold text-green-800">{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
